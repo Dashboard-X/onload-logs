@@ -1,0 +1,139 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+<head id="Head1" runat="server">
+
+  <title>Load Wait Message Demo</title>
+
+</head>
+
+<script type="text/javascript" language="javascript">
+
+  if(document.getElementById)
+{ // IE 5 and up, FF
+
+    var upLevel = true;
+
+  }
+
+else if(document.layers) { // Netscape 4
+
+    var ns4 = true;
+
+  }
+
+  else
+if(document.all) { //IE 4
+
+     var ie4 = true;
+
+  }
+
+  function showObject(obj) {
+
+  if(ns4) {
+
+     obj.visibility = "show";
+
+  }
+
+  else if (ie4 || upLevel) {
+
+     drawMessageBox();
+
+obj.style.visibility = "visible";        
+
+  }
+
+}
+
+     
+showObject('splashScreen');
+
+  function hideObject(obj) {
+
+  if(ns4) {
+
+        obj.visibility = "hide";
+
+      }
+
+      if(ie4 || upLevel) {
+
+        obj.style.visibility = "hidden";
+
+      }
+
+}
+
+  function drawMessageBox()
+
+  {         
+var box = "<div id='splashScreen'
+           style='position:absolute;z-index:5;top:30%;left:35%;'>"
+
+            +"<table cellpadding='0' cellspacing='0' style='width:300px;
+
+            height:200px;'>"
+
+            +"<tr><td
+style='width:100%; height:100%;font-family:Tahoma;' align='center'
+            valign='middle'>"
+
+            +"<br/><br />"
+
+            +"<IMG src='Images/Loading.gif' BORDER='0' Name='Progress'/>"
+
+            +"   Please wait..."
+
+            +"</td><td></td></tr>"
+
+           +"</table>"
+
+            +"</div>";
+
+            document.write(box);
+
+ }
+
+</script>
+
+<body>
+
+<% Response.Flush();%>
+
+    <form id="form2" runat="server">
+
+        <% System.Threading.Thread.Sleep(3000);%>
+
+    </form>
+
+<% Response.Flush();%>
+
+<script type="text/javascript" language="javascript">
+
+  if(upLevel)
+{
+
+     var splash = document.getElementById("splashScreen");
+
+  }
+
+  else if(ns4) {
+
+     var splash = document.splashScreen;
+
+  }
+
+  else if(ie4) {
+
+     var splash = document.all.splashScreen;
+
+  }
+
+  hideObject(splash);
+
+</script>
+
+</body>
+
+</html>
