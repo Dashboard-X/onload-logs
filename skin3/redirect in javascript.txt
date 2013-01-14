@@ -1,0 +1,81 @@
+<script language=”javascript” type=”text/javascript”>
+	window.location.href=”login.jsp?backurl=”+window.location.href;
+	</script>
+2,
+	<script language=”javascript”>
+	alert(”back”);
+	window.history.back(-1);
+	</script>
+3,
+	<script language=”javascript”>
+	window.navigate(”top.jsp”);
+	</script>
+4,
+	<script language=”JavaScript”>
+	self.location=”top.htm”;
+	</script>
+5,
+	<script language=”javascript”>
+	alert(”Access Violation”);
+	top.location=”error.jsp”;
+	</script>
+
+6.
+// similar behavior as an HTTP redirect
+window.location.replace("http://stackoverflow.com");
+
+// similar behavior as clicking on a link
+window.location.href = "http://stackoverflow.com";
+
+
+7.
+<script type="text/javascript">
+<!--
+function Redirect()
+{
+    window.location="http://www.newlocation.com";
+}
+
+document.write("You will be redirected to main page in 10 sec.");
+setTimeout('Redirect()', 10000);
+//-->
+</script>
+
+8.
+<script type="text/javascript">
+<!--
+var browsername=navigator.appName; 
+if( browsername == "Netscape" )
+{ 
+   window.location="http://www.location.com/ns.htm";
+}
+else if ( browsername =="Microsoft Internet Explorer")
+{
+   window.location="http://www.location.com/ie.htm";
+}
+else
+{
+  window.location="http://www.location.com/other.htm";
+}
+//-->
+</script>
+
+
+9.
+  <script language="javascript" type="text/javascript"> 
+      function validateuser() 
+      { 
+          var user= document.getElementById("Text1").value; 
+          if (user=="admin") 
+          { 
+              window.location="city.html?name="+user; 
+          } 
+          else 
+          { 
+              alert("Login Failed"); 
+              document.getElementById("Text1").value=""; 
+              document.getElementById("Text1").focus(); 
+          } 
+      } 
+    
+      </script>

@@ -2,7 +2,6 @@ jsMessage
 =========
 
 Custom notifications, alerts, confirmations
-
 This library was extracted from code of [DHTMLX suite][dhtmlx].
 
 - Library can be used under terms of [MIT license][mit] (basically **free**).
